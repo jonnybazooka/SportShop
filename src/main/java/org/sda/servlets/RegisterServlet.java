@@ -20,7 +20,7 @@ public class RegisterServlet extends HttpServlet {
         String password = new SHA256().hashPassword(req.getParameter("passHash"));
 
         ClientDao clientDao = new ClientDaoImpl();
-        clientDao.saveClient(new Client(email, name, password));
+        clientDao.saveClient(new Client(name, email, password));
 
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("sign_In.jsp");
         requestDispatcher.forward(req, resp);
