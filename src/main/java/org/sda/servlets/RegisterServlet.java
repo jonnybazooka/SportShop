@@ -17,7 +17,7 @@ public class RegisterServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String email = req.getParameter("email");
         String name = req.getParameter("name");
-        String password = new SHA256().hashPassword(req.getParameter("password"));
+        String password = new SHA256().hashPassword(req.getParameter("passHash"));
 
         ClientDao clientDao = new ClientDaoImpl();
         clientDao.saveClient(new Client(email, name, password));
