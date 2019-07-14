@@ -7,6 +7,7 @@ import org.sda.models.dto.Client;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.servlet.http.Cookie;
 
 public class ClientDaoImpl implements ClientDao {
     @Override
@@ -31,5 +32,21 @@ public class ClientDaoImpl implements ClientDao {
     public Basket getBasket(Client client) {
         EntityManager entityManager = Datasource.getEntityManager();
         return (Basket) entityManager.createQuery("SELECT Basket FROM Client c").getSingleResult();
+    }
+
+    @Override
+    public String getCookieValue(Client client) {
+        EntityManager entityManager = Datasource.getEntityManager();
+        String cookieValue = (String) entityManager.createQuery("SELECT Client .cookieValue FROM Client").getSingleResult();
+        return cookieValue;
+    }
+
+    @Override
+    public void saveCookie(Client client, Cookie cookie) {
+        EntityManager entityManager = Datasource.getEntityManager();
+        EntityTransaction transaction = entityManager.getTransaction();
+        transaction.begin();
+        client.setCookieValue(cookie.getValue());
+        transaction.commit();
     }
 }
