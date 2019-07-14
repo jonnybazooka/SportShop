@@ -47,8 +47,8 @@
         <a class="p-2 text-dark" href="#">Basket</a>
         <a class="p-2 text-dark" href="#">Control Panel</a>
     </nav>
-    <a class="btn btn-outline-primary" action href="#">Sign up</a>
-    <a class="btn btn-outline-primary" href="#">Register</a>
+    <a class="btn btn-outline-primary" action href="sign_In.jsp">Sign up</a>
+    <a class="btn btn-outline-primary" href="register.jsp">Register</a>
 </div>
 
 <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">

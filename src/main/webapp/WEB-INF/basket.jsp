@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v3.8.5">
-    <title>Pricing example · Bootstrap</title>
+    <title>Your basket</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/pricing/">
@@ -52,13 +52,13 @@
 </div>
 
 <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-    <h1 class="display-4">Sport products</h1>
-    <p class="lead">Store mission, some healthy lifestyle promotion</p>
+    <h1 class="display-4">Your basket.</h1>
+    <p class="lead">If you don't like a product anymore, feel free to remove it from the basket before finishing shopping.</p>
 </div>
 <div class="container">
 
     <div class="card-deck mb-3 text-center">
-        <c:forEach var="product" items="${requestScope.productList}">
+        <c:forEach var="product" items="${requestScope.products}">
             <div class="row">
                 <div class="col-3">
                     <div class="card mb-4 shadow-sm" style="width: 250px; height: 350px">
@@ -75,7 +75,7 @@
                                 <li>${product.sex}</li>
                                 <li>${product.quantity}</li>
                             </ul>
-                            <button type="button" class="btn btn-lg btn-block btn-outline-primary">Add to basket
+                            <button type="button" class="btn btn-lg btn-block btn-outline-primary">Remove from basket.
                             </button>
                         </div>
                     </div>
@@ -83,6 +83,9 @@
             </div>
         </c:forEach>
     </div>
+
+
+
     <footer class="pt-4 my-md-5 pt-md-5 border-top">
         <div class="row">
             <div class="col-12 col-md">
