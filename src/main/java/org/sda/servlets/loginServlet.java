@@ -7,6 +7,7 @@ import org.sda.models.dto.Client;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,7 +22,12 @@ public class loginServlet extends HttpServlet {
         ClientDao clientDao = new ClientDaoImpl();
         Client client = clientDao.getClientByEmail(email);
 
+
         if (client.getPassHash().equals(password)){
+            req.getSession().setAttribute("name", client.getName());
+            Cookie cookie = new Cookie("user", "valid");
+            cookie.setMaxAge(-1);
+
             RequestDispatcher requestDispatcher = req.getRequestDispatcher("frontUserView.jsp");
             requestDispatcher.forward(req,resp);
         }else {

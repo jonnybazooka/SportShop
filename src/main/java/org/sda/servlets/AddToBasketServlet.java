@@ -2,6 +2,7 @@ package org.sda.servlets;
 
 import org.sda.models.dao.Impl.ProductDaoImpl;
 import org.sda.models.dao.ProductDao;
+import org.sda.models.dto.Basket;
 import org.sda.models.dto.Product;
 
 import javax.servlet.ServletException;
@@ -19,7 +20,7 @@ public class AddToBasketServlet extends HttpServlet {
         ProductDao productDao = new ProductDaoImpl();
         List<Product> list = productDao.getProductList();
 
-        Product product;
+        Product product = null;
         for (Product p: list){
             if (p.getId() == id) {
                 product = p;
@@ -27,6 +28,7 @@ public class AddToBasketServlet extends HttpServlet {
             }
         }
 
+        productDao.putInBasket(product,new Basket());
 
 
      }
