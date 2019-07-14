@@ -63,7 +63,7 @@
                 <h4 class="my-0 font-weight-normal">${product.name}</h4>
             </div>
             <div class="card-body">
-                <h1 class="card-title pricing-card-title">${product.price} </h1>
+                <h1 class="card-title pricing-card-title">${product.price} <small class="text-muted">$</small></h1>
                 <ul class="list-unstyled mt-3 mb-4">
                     <li>${product.size}</li>
                     <li>${product.colour}</li>
