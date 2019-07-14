@@ -17,6 +17,7 @@ public class Client {
     private Basket basket;
     @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private List<Transaction> transactions = new ArrayList<>();
+    private String cookieValue;
 
     public Client() {
     }
@@ -89,5 +90,13 @@ public class Client {
     public void removeTransaction(Transaction transaction) {
         this.transactions.remove(transaction);
         transaction.setClient(null);
+    }
+
+    public String getCookieValue() {
+        return cookieValue;
+    }
+
+    public void setCookieValue(String cookieValue) {
+        this.cookieValue = cookieValue;
     }
 }
