@@ -1,8 +1,8 @@
 <%--
   Created by IntelliJ IDEA.
-  User: Krzysztof Zet
-  Date: 14.07.2019
-  Time: 13:16
+  User: mariusz
+  Date: 14.07.19
+  Time: 11:06
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -56,6 +56,7 @@
     <p class="lead">Store mission, some healthy lifestyle promotion</p>
 </div>
 <div class="container">
+
     <div class="card-deck mb-3 text-center">
         <c:forEach var="product" items="${requestScope.productList}">
             <div class="row">
@@ -73,7 +74,6 @@
                                 <li>${product.colour}</li>
                                 <li>${product.sex}</li>
                                 <li>${product.quantity}</li>
-
                             </ul>
                             <button type="button" class="btn btn-lg btn-block btn-outline-primary">Add to basket
                             </button>
@@ -83,7 +83,6 @@
             </div>
         </c:forEach>
     </div>
-
     <footer class="pt-4 my-md-5 pt-md-5 border-top">
         <div class="row">
             <div class="col-12 col-md">
@@ -133,3 +132,4 @@
         crossorigin="anonymous"></script>
 </body>
 </html>
+
