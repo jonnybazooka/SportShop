@@ -1,4 +1,7 @@
 package org.sda.servlets;
 
-public class SomeServlet {
+import javax.servlet.http.HttpServlet;
+
+public class SomeServlet extends HttpServlet {
+
 }
