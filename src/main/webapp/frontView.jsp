@@ -58,7 +58,7 @@
 </div>
 
 <div class="container">
-<c:
+<c:forEach var="product" items="${applicationScope.productMap}">
     <div class="card-deck mb-3 text-center">
         <div class="card mb-4 shadow-sm">
             <div class="card-header">
@@ -77,7 +77,7 @@
         </div>
 
     </div>
-
+</c:forEach>
     <footer class="pt-4 my-md-5 pt-md-5 border-top">
         <div class="row">
             <div class="col-12 col-md">
