@@ -1,6 +1,5 @@
 package org.sda.servlets;
 
-import org.sda.authentication.HashFunction;
 import org.sda.authentication.impl.SHA256;
 import org.sda.models.dao.ClientDao;
 import org.sda.models.dao.Impl.ClientDaoImpl;
