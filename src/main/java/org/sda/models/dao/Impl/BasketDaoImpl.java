@@ -28,5 +28,12 @@ public class BasketDaoImpl implements BasketDao {
 
         Basket basket = entityManager.find(Basket.class, client.getId());
         Transaction transaction = new Transaction();
+        transaction.setProducts(basket.getProducts());
+        transaction.setClient(client);
+
+        entityTransaction.begin();
+        entityManager.persist(transaction);
+        entityManager.remove(basket);
+        entityTransaction.commit();
     }
 }

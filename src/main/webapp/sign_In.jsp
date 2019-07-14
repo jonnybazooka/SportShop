@@ -136,22 +136,19 @@
         <div class="container">
 
             <div class="card-deck mb-3 text-center">
-                <c:forEach var="product" items="${requestScope.productList}">
+
                     <div class="row">
                         <div class="col-3">
                             <div class="card mb-4 shadow-sm" style="width: 250px; height: 350px">
-                                <div style="height: 150px;">
-                                    <h4 class="my-0 font-weight-normal">${product.name}</h4>
-                                </div>
+
                                 <div class="card-body">
-                                    <h1 class="card-title pricing-card-title">${product.price}
-                                        <small class="text-muted">$</small>
-                                    </h1>
+                                  b
                                     <ul class="list-unstyled mt-3 mb-4">
-                                        <li>${product.size}</li>
-                                        <li>${product.colour}</li>
-                                        <li>${product.sex}</li>
-                                        <li>${product.quantity}</li>
+                                        <form method="POST" action="adBook">
+                                            <input type="text" name="Name" />
+                                            <input type="password" name="Password"/>
+
+                                        </form>
                                     </ul>
                                     <button type="button" class="btn btn-lg btn-block btn-outline-primary">Add to basket
                                     </button>
@@ -159,7 +156,7 @@
                             </div>
                         </div>
                     </div>
-                </c:forEach>
+
             </div>
             <footer class="pt-4 my-md-5 pt-md-5 border-top">
                 <div class="row">
