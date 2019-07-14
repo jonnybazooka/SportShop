@@ -58,8 +58,8 @@
 <div class="container">
     <div class="card-deck mb-3 text-center">
         <div class="row">
-            <div class="col-3">
-                <div class="card mb-4 shadow-sm" style="width: 550px; height: 350px">
+            <div class="col align-self-center">
+                <div class="card mb-4 shadow-sm" >
                     <div class="card-body">
                         <form method="POST" action="register">
                             <ul class="list-unstyled mt-3 mb-4">
@@ -70,7 +70,6 @@
                             <button type="submit" class="btn btn-lg btn-block btn-outline-primary">Register
                             </button>
                         </form>
-
                     </div>
                 </div>
             </div>
