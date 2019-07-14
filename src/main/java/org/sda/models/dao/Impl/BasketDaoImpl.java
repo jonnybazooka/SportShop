@@ -4,10 +4,12 @@ import org.sda.datasource.Datasource;
 import org.sda.models.dao.BasketDao;
 import org.sda.models.dto.Basket;
 import org.sda.models.dto.Client;
+import org.sda.models.dto.Product;
 import org.sda.models.dto.Transaction;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import java.util.List;
 
 public class BasketDaoImpl implements BasketDao {
     @Override
@@ -35,5 +37,12 @@ public class BasketDaoImpl implements BasketDao {
         entityManager.persist(transaction);
         entityManager.remove(basket);
         entityTransaction.commit();
+    }
+
+    @Override
+    public List<Product> getAllItems() {
+        EntityManager entityManager = Datasource.getEntityManager();
+        List<Product> allItems = entityManager.createQuery("SELECT Product FROM Basket b").getResultList();
+        return allItems;
     }
 }
