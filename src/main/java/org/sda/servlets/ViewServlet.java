@@ -1,7 +1,7 @@
 package org.sda.servlets;
 
 import org.sda.models.dao.Impl.ProductDaoImpl;
-import org.sda.models.dao.ProductDao;
+import org.sda.models.dto.Product;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -14,7 +14,7 @@ import java.util.List;
 public class dViewServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<ProductDao> list = new ProductDaoImpl().getProductList();
+        List<Product> list = new ProductDaoImpl().getProductList();
 
         req.setAttribute("productList",list);
 
