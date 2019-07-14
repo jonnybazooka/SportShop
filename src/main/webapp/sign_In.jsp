@@ -52,8 +52,8 @@
 </div>
 
 <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-    <h1 class="display-4">Sport products</h1>
-    <p class="lead">Store mission, some healthy lifestyle promotion</p>
+    <h1 class="display-4">Sign in</h1>
+    <p class="lead">Hellow my friend special price for you</p>
 </div>
 <div class="container">
 
@@ -62,16 +62,18 @@
         <div class="card mb-4 shadow-sm">
             <div class="card-header">
             </div>
-            <div class="card-body">
+            <div class="card-body" >
 
-                </h1>
+                <form method="post" action="sign_In">
                 <ul class="list-unstyled mt-3 mb-4">
                     <form method="POST" action="index.jsp">
                        <li><input type="text" name="name" placeholder="Name"/></li>
                         <li> <input type="password" name="password"placeholder="Password"/></li>
 
                 </ul>
-                <button type="button" class="btn btn-lg btn-block btn-outline-primary">Accept</button>
+
+                <button type="submit" style="width: 300px; ">Accept</button>
+                </form>
             </div>
         </div>
 
