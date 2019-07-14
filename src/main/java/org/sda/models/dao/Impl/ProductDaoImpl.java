@@ -2,6 +2,7 @@ package org.sda.models.dao.Impl;
 
 import org.sda.datasource.Datasource;
 import org.sda.models.dao.ProductDao;
+import org.sda.models.dto.Basket;
 import org.sda.models.dto.Product;
 import org.sda.models.factory.ProductFactory;
 
@@ -29,6 +30,15 @@ public class ProductDaoImpl implements ProductDao {
         EntityTransaction transaction = entityManager.getTransaction();
         transaction.begin();
         entityManager.persist(product);
+        transaction.commit();
+    }
+
+    @Override
+    public void putInBasket(Product product, Basket basket) {
+        EntityManager entityManager = Datasource.getEntityManager();
+        EntityTransaction transaction = entityManager.getTransaction();
+        transaction.begin();
+        basket.addProduct(product);
         transaction.commit();
     }
 }

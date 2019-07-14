@@ -65,6 +65,12 @@ public class Client {
 
     public void setBasket(Basket basket) {
         this.basket = basket;
+        basket.setClient(this);
+    }
+
+    public void removeBasket(Basket basket) {
+        this.basket = null;
+        basket.setClient(null);
     }
 
     public List<Transaction> getTransactions() {
