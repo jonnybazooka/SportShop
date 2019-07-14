@@ -1,6 +1,8 @@
 package org.sda.models.dto;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Client {
@@ -13,6 +15,8 @@ public class Client {
     private String passHash;
     @OneToOne(mappedBy = "client", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private Basket basket;
+    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
+    private List<Transaction> transactions = new ArrayList<>();
 
     public Client() {
     }
@@ -53,5 +57,31 @@ public class Client {
 
     public void setPassHash(String passHash) {
         this.passHash = passHash;
+    }
+
+    public Basket getBasket() {
+        return basket;
+    }
+
+    public void setBasket(Basket basket) {
+        this.basket = basket;
+    }
+
+    public List<Transaction> getTransactions() {
+        return transactions;
+    }
+
+    public void setTransactions(List<Transaction> transactions) {
+        this.transactions = transactions;
+    }
+
+    public void addTransaction(Transaction transaction) {
+        this.transactions.add(transaction);
+        transaction.setClient(this);
+    }
+
+    public void removeTransaction(Transaction transaction) {
+        this.transactions.remove(transaction);
+        transaction.setClient(null);
     }
 }

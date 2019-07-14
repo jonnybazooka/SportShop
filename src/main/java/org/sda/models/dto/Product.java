@@ -7,6 +7,7 @@ public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
+    private String name;
     private String size;
     private String colour;
     private String sex;
@@ -15,12 +16,15 @@ public class Product {
     private long reserved;
     @ManyToOne
     private Basket basket;
+    @ManyToOne
+    private Transaction transaction;
 
     public Product() {
     }
 
-    public Product(String size, String colour, String sex, double price, long quantity, long reserved) {
+    public Product(String size, String name, String colour, String sex, double price, long quantity, long reserved) {
         this.size = size;
+        this.name = name;
         this.colour = colour;
         this.sex = sex;
         this.price = price;
@@ -34,6 +38,14 @@ public class Product {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getSize() {
@@ -90,5 +102,13 @@ public class Product {
 
     public void setBasket(Basket basket) {
         this.basket = basket;
+    }
+
+    public Transaction getTransaction() {
+        return transaction;
+    }
+
+    public void setTransaction(Transaction transaction) {
+        this.transaction = transaction;
     }
 }
