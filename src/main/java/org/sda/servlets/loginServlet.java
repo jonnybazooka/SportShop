@@ -21,7 +21,9 @@ public class loginServlet extends HttpServlet {
         ClientDao clientDao = new ClientDaoImpl();
         Client client = clientDao.getClientByEmail(email);
 
+
         if (client.getPassHash().equals(password)){
+            req.getSession().setAttribute("name", client.getName());
             RequestDispatcher requestDispatcher = req.getRequestDispatcher("frontUserView.jsp");
             requestDispatcher.forward(req,resp);
         }else {
