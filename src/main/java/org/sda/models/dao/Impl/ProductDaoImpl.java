@@ -38,6 +38,7 @@ public class ProductDaoImpl implements ProductDao {
         EntityManager entityManager = Datasource.getEntityManager();
         EntityTransaction transaction = entityManager.getTransaction();
         transaction.begin();
+        product.setReserved(product.getReserved()+1);
         basket.addProduct(product);
         transaction.commit();
     }

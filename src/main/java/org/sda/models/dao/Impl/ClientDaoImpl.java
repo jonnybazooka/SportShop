@@ -31,14 +31,11 @@ public class ClientDaoImpl implements ClientDao {
     @Override
     public Basket getBasket(Client client) {
         EntityManager entityManager = Datasource.getEntityManager();
-        return (Basket) entityManager.createQuery("SELECT Basket FROM Client c").getSingleResult();
-    }
-
-    @Override
-    public String getCookieValue(Client client) {
-        EntityManager entityManager = Datasource.getEntityManager();
-        String cookieValue = (String) entityManager.createQuery("SELECT Client .cookieValue FROM Client").getSingleResult();
-        return cookieValue;
+        Basket basket = (Basket) entityManager.createQuery("SELECT Basket FROM Client c").getSingleResult();
+        if (basket == null) {
+            return new Basket();
+        }
+        return basket;
     }
 
     @Override

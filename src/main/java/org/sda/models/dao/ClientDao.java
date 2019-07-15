@@ -9,6 +9,5 @@ public interface ClientDao {
     void saveClient(Client client);
     Client getClientByEmail(String email);
     Basket getBasket(Client client);
-    String getCookieValue(Client client);
     void saveCookie(Client client, Cookie cookie);
 }

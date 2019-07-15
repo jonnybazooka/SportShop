@@ -34,6 +34,10 @@ public class BasketDaoImpl implements BasketDao {
         transaction.setClient(client);
 
         entityTransaction.begin();
+        for (Product product : basket.getProducts()) {
+            product.setQuantity(product.getQuantity() - product.getReserved());
+            product.setReserved(0L);
+        }
         entityManager.persist(transaction);
         entityManager.remove(basket);
         entityTransaction.commit();
