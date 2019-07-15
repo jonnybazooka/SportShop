@@ -42,16 +42,18 @@ public class LoginServlet extends HttpServlet {
     }
 
     private Cookie createSessionCookie(String name) {
+        HashFunction hashFunction = new SHA256();
+
+        String token = createRandomToken(name);
+        Cookie cookie = new Cookie("token", hashFunction.hashPassword(token));
+        cookie.setMaxAge(-1);
+        return cookie;
+    }
+
+    private String createRandomToken(String name) {
         Random random = new Random();
         int randomizer = random.nextInt(100);
         String randomAddon = String.valueOf(randomizer);
-        String token = name + randomAddon;
-
-        HashFunction hashFunction = new SHA256();
-        String cookieValue = hashFunction.hashPassword(token);
-
-        Cookie cookie = new Cookie("token", cookieValue);
-        cookie.setMaxAge(-1);
-        return cookie;
+        return name + randomAddon;
     }
 }
