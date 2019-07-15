@@ -1,5 +1,6 @@
 package org.sda.servlets;
 
+import org.sda.authentication.HashFunction;
 import org.sda.authentication.impl.SHA256;
 import org.sda.models.dao.ClientDao;
 import org.sda.models.dao.Impl.ClientDaoImpl;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Random;
 
 public class LoginServlet extends HttpServlet {
     @Override
@@ -22,18 +24,34 @@ public class LoginServlet extends HttpServlet {
         ClientDao clientDao = new ClientDaoImpl();
         Client client = clientDao.getClientByEmail(email);
 
-
         if (client.getPassHash().equals(password)){
             req.getSession().setAttribute("name", client.getName());
-            Cookie cookie = new Cookie("user", "valid");
+            req.getSession().setAttribute("email", client.getEmail());
+            Cookie cookie = createSessionCookie(client.getName());
             cookie.setMaxAge(-1);
+            resp.addCookie(cookie);
+            clientDao.saveCookie(client, cookie);
 
             RequestDispatcher requestDispatcher = req.getRequestDispatcher("frontUserView.jsp");
             requestDispatcher.forward(req,resp);
-        }else {
+        } else {
             RequestDispatcher requestDispatcher = req.getRequestDispatcher("loginFault.jsp");
             requestDispatcher.forward(req,resp);
         }
 
+    }
+
+    private Cookie createSessionCookie(String name) {
+        Random random = new Random();
+        int randomizer = random.nextInt(100);
+        String randomAddon = String.valueOf(randomizer);
+        String token = name + randomAddon;
+
+        HashFunction hashFunction = new SHA256();
+        String cookieValue = hashFunction.hashPassword(token);
+
+        Cookie cookie = new Cookie("token", cookieValue);
+        cookie.setMaxAge(-1);
+        return cookie;
     }
 }
