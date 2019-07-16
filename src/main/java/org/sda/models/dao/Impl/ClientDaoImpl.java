@@ -7,35 +7,45 @@ import org.sda.models.dto.Client;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.RollbackException;
+import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
+import java.util.List;
 
 public class ClientDaoImpl implements ClientDao {
     @Override
-    public void saveClient(Client client) {
+    public void saveClient(Client client) throws ServletException {
         EntityManager entityManager = Datasource.getEntityManager();
         EntityTransaction transaction = entityManager.getTransaction();
-        transaction.begin();
-        entityManager.persist(client);
-        transaction.commit();
+        try {
+            transaction.begin();
+            entityManager.persist(client);
+            transaction.commit();
+        } catch (RollbackException e) {
+            throw new ServletException("Client with email: " + client.getEmail() + " already exists in database.");
+        }
     }
 
     @Override
     public Client getClientByEmail(String email) {
         EntityManager entityManager = Datasource.getEntityManager();
-        Client client = (Client) entityManager.createQuery("SELECT c FROM Client c WHERE c.email = :email")
+        List<Client> result = (List<Client>) entityManager.createQuery("SELECT c FROM Client c WHERE c.email = :email")
                 .setParameter("email", email)
-                .getSingleResult();
-        return client;
+                .getResultList();
+        if (result.isEmpty()) {
+            return null;
+        }
+        return result.get(0);
     }
 
     @Override
     public Basket getBasket(Client client) {
         EntityManager entityManager = Datasource.getEntityManager();
-        Basket basket = (Basket) entityManager.createQuery("SELECT Basket FROM Client c").getSingleResult();
-        if (basket == null) {
+        List<Basket> result = (List<Basket>) entityManager.createQuery("SELECT Basket FROM Client c").getResultList();
+        if (result.isEmpty()) {
             return new Basket();
         }
-        return basket;
+        return result.get(0);
     }
 
     @Override

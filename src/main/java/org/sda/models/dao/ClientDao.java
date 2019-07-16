@@ -3,17 +3,19 @@ package org.sda.models.dao;
 import org.sda.models.dto.Basket;
 import org.sda.models.dto.Client;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
 
 public interface ClientDao {
     /**
      * Writes a new client into a database.
      * @param client New client object that will be persisted.
+     * @throws ServletException when client with passed email already exists in database.
      */
-    void saveClient(Client client);
+    void saveClient(Client client) throws ServletException;
 
     /**
-     * Returns a client object from a database
+     * Returns a client object from a database.
      * @param email Email of a client that will be returned. Emails are unique in database.
      * @return <tt>null</tt> if email doesn't match any record in database.
      */
@@ -27,7 +29,9 @@ public interface ClientDao {
     Basket getBasket(Client client);
 
     /**
-     * Writes a new cookie into database. Cookie will be used to authenticate the client during session.
+     * Writes a new cookie into database. Cookie will be used to authenticate the client during session. If the cookie
+     * already exists, it will be overwritten by a new one, and that will lead to authentication methods to fail, so
+     * this method should be used only once per client per session.
      * @param client Existing client for whom the cookie will be written.
      * @param cookie Cookie that will be written. It should be fully created beforehand.
      */
