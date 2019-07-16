@@ -11,10 +11,14 @@ import javax.servlet.http.Cookie;
 
 public class IdentityAuthenticatorImpl implements IdentityAuthenticator {
     private static Logger logger = LoggerFactory.getLogger(IdentityAuthenticator.class);
+    private ClientDao clientDao;
+
+    public IdentityAuthenticatorImpl() {
+        this.clientDao = new ClientDaoImpl();
+    }
 
     @Override
     public boolean authenticateCookieValue(String email, Cookie[] cookies) {
-        ClientDao clientDao = new ClientDaoImpl();
         Client client = clientDao.getClientByEmail(email);
         String cookieValue = client.getCookieValue();
 
