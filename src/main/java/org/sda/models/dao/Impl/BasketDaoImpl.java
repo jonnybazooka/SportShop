@@ -12,16 +12,6 @@ import javax.persistence.EntityTransaction;
 import java.util.List;
 
 public class BasketDaoImpl implements BasketDao {
-    @Override
-    public void createNewBasket(Client client) {
-        EntityManager entityManager = Datasource.getEntityManager();
-        EntityTransaction transaction = entityManager.getTransaction();
-        Basket basket = new Basket();
-
-        transaction.begin();
-        client.setBasket(basket);
-        transaction.commit();
-    }
 
     @Override
     public void sellAllItems(Client client) {
