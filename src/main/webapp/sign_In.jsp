@@ -54,48 +54,51 @@
 <div class="container">
 
     <div class="card-deck mb-3 text-center">
-
+        <div style="width: 350px">
+        </div>
         <div class="card mb-4 shadow-sm">
             <div class="card-header">
             </div>
-            <div class="card-body" >
+            <div class="card-body">
 
                 <form method="post" action="sign_In">
-                <ul class="list-unstyled mt-3 mb-4">
-                    <form method="POST" action="index.jsp">
-                       <li><input type="email" name="email" placeholder="email"/></li>
-                        <li> <input type="password" name="password"placeholder="Password"/></li>
+                    <ul class="list-unstyled mt-3 mb-4">
+                        <form method="POST" action="index.jsp">
+                            <li><input type="email" name="email" placeholder="email"/></li>
+                            <li><input type="password" name="password" placeholder="Password"/></li>
 
-                </ul>
+                    </ul>
 
-                <button type="submit" style="width: 300px; ">Accept</button>
+                    <button type="submit" style="width: 300px; ">Accept</button>
                 </form>
             </div>
+
         </div>
+        <div style="width: 350px">
 
-       </div>
+        </div>
+    </div>
 
 
-
-    <footer class="pt-4 my-md-5 pt-md-5 border-top">
-        <div class="row">
-            <div class="col-12 col-md">
-                <img class="mb-2" src="/docs/4.3/assets/brand/bootstrap-solid.svg" alt="" width="24" height="24">
-                <small class="d-block mb-3 text-muted">&copy; 2017-2019</small>
-                <div class="col-6 col-md">
-                    <h5>About</h5>
-                    <ul class="list-unstyled text-small">
-                        <li><a class="text-muted" href="#">Team</a></li>
-                        <li><a class="text-muted" href="#">Locations</a></li>
-                        <li><a class="text-muted" href="#">Privacy</a></li>
-                        <li><a class="text-muted" href="#">Terms</a></li>
-                    </ul>
-                </div>
+<footer class="pt-4 my-md-5 pt-md-5 border-top">
+    <div class="row">
+        <div class="col-12 col-md">
+            <img class="mb-2" src="/docs/4.3/assets/brand/bootstrap-solid.svg" alt="" width="24" height="24">
+            <small class="d-block mb-3 text-muted">&copy; 2017-2019</small>
+            <div class="col-6 col-md">
+                <h5>About</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class="text-muted" href="#">Team</a></li>
+                    <li><a class="text-muted" href="#">Locations</a></li>
+                    <li><a class="text-muted" href="#">Privacy</a></li>
+                    <li><a class="text-muted" href="#">Terms</a></li>
+                </ul>
             </div>
-
-
         </div>
-    </footer>
+
+
+    </div>
+</footer>
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
