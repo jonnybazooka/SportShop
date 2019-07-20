@@ -94,4 +94,13 @@
         <url-pattern>/buy</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>RemoveItemFromBasketServlet</servlet-name>
+        <servlet-class>org.sda.servlets.RemoveItemFromBasketServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>RemoveItemFromBasketServlet</servlet-name>
+        <url-pattern>/removeItem</url-pattern>
+    </servlet-mapping>
+
 </web-app>

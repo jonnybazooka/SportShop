@@ -76,8 +76,8 @@
                                 <li>${product.sex}</li>
                                 <li>${product.reserved}</li>
                             </ul>
-                            <button type="button" class="btn btn-lg btn-block btn-outline-primary">Remove from basket.
-                            </button>
+                            <a href="removeItem?itemId=${product.id}" type="button" class="btn btn-lg btn-block btn-outline-primary">Remove from basket.
+                            </a>
                         </div>
                     </div>
                 </div>

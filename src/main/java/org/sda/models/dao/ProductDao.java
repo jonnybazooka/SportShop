@@ -29,5 +29,7 @@ public interface ProductDao {
      */
     void putInBasket(Product product, Basket basket);
 
+    void removeFromBasket(Product product, Basket basket);
+
     Product getProductById(long id);
 }
