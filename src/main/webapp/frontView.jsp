@@ -48,7 +48,7 @@
         <a class="p-2 text-dark" href="#">Control Panel</a>
     </nav>
     <a class="btn btn-outline-primary" action href="sign_In.jsp">
-         ${sessionScope.name == null ? 'sign in' : {sessionScope.name}}
+         ${sessionScope.name == null ? 'sign in' : sessionScope.name}
     </a>
     <a class="btn btn-outline-primary" href="register.jsp">Register</a>
 </div>

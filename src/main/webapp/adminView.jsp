@@ -183,10 +183,10 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-sm">
-                                <h6> User mail: </h6>
+                                <h4> User mail: </h4>
                             </div>
                             <div class="col-sm">
-                                <h6>   ${transaction.client.email} </h6>
+                                <h4>   ${transaction.client.email} </h4>
                             </div>
                         </div>
                         <c:set var="count" value="0" scope="page"/>
