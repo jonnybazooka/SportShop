@@ -158,7 +158,6 @@
                         </button>
                     </form>
                     <c:forEach var="transaction" items="${requestScope.transactions}">
-                    <c:set var="value" value="${0}"/>
                     <div class="container">
                         <div class="row">
                             <div class="col-sm">
@@ -175,9 +174,7 @@
                                 </div>
                                 <div class="col-sm">
                                         ${product.quantity}
-                                        <c:set var="value" value="${value + product.price}"/>
                                 </div>
-                                ${value}
                             </div>
 
                             <c:set var="count" value="${count + product.price*product.quantity}" scope="page"/>
@@ -244,6 +241,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
+</div>
 </body>
 </html>
 

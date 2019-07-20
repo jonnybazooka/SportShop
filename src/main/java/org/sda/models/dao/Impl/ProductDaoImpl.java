@@ -49,4 +49,14 @@ public class ProductDaoImpl implements ProductDao {
         EntityManager entityManager = Datasource.getEntityManager();
         return entityManager.find(Product.class, id);
     }
+
+    @Override
+    public void removeFromBasket(Product product, Basket basket) {
+        EntityManager entityManager = Datasource.getEntityManager();
+        EntityTransaction transaction = entityManager.getTransaction();
+        transaction.begin();
+        product.setReserved(product.getReserved()-1);
+        entityManager.persist(basket);
+        transaction.commit();
+    }
 }
