@@ -77,7 +77,7 @@
                                 <li>${product.sex}</li>
                                 <li>${product.quantity}</li>
                             </ul>
-                            <button type="button" class="btn btn-lg btn-block btn-outline-primary">Add to basket
+                            <button href="addToBasket?id=${product.id}" type="button" class="btn btn-lg btn-block btn-outline-primary">Add to basket
                             </button>
                         </div>
                     </div>
