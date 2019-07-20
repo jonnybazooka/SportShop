@@ -9,8 +9,8 @@ public class Transaction {
     @Id
     @GeneratedValue
     private long id;
-    @OneToMany
-    private List<Product> products = new ArrayList<>();
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<SoldProduct> products = new ArrayList<>();
     @ManyToOne
     private Client client;
 
@@ -25,22 +25,22 @@ public class Transaction {
         this.id = id;
     }
 
-    public List<Product> getProducts() {
+    public List<SoldProduct> getProducts() {
         return products;
     }
 
-    public void setProducts(List<Product> products) {
+    public void setProducts(List<SoldProduct> products) {
         this.products = products;
     }
 
-    public void addProduct(Product product) {
+    public void addProduct(SoldProduct product) {
         this.products.add(product);
-        product.setTransaction(this);
+        product.addTransaction(this);
     }
 
-    public void removeProduct(Product product) {
+    public void removeProduct(SoldProduct product) {
         this.products.remove(product);
-        product.setTransaction(null);
+        product.removeTransaction(this);
     }
 
     public Client getClient() {

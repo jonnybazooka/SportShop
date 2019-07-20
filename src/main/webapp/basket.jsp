@@ -86,8 +86,8 @@
 
     </div>
     <div class="col-md-4 center-block">
-        <button type="button" class="btn btn-outline-primary" action href="buy">Buy all
-        </button>
+        <a type="button" class="btn btn-outline-primary" href="buy">Buy all
+        </a>
 
     </div>
 

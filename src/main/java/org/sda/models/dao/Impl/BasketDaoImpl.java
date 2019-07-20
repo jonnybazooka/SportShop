@@ -2,10 +2,7 @@ package org.sda.models.dao.Impl;
 
 import org.sda.datasource.Datasource;
 import org.sda.models.dao.BasketDao;
-import org.sda.models.dto.Basket;
-import org.sda.models.dto.Client;
-import org.sda.models.dto.Product;
-import org.sda.models.dto.Transaction;
+import org.sda.models.dto.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -21,8 +18,18 @@ public class BasketDaoImpl implements BasketDao {
         Transaction transaction = new Transaction();
 
         entityTransaction.begin();
-        transaction.setProducts(basket.getProducts());
-        transaction.setClient(client);
+        List<Product> products = basket.getProducts();
+        for (Product product : products) {
+            SoldProduct soldProduct = new SoldProduct();
+            soldProduct.setName(product.getName());
+            soldProduct.setColour(product.getColour());
+            soldProduct.setSex(product.getSex());
+            soldProduct.setSize(product.getSize());
+            soldProduct.setPrice(product.getPrice());
+            soldProduct.setQuantity(product.getReserved());
+            transaction.addProduct(soldProduct);
+        }
+        client.addTransaction(transaction);
 
         for (Product product : basket.getProducts()) {
             product.setQuantity(product.getQuantity() - product.getReserved());
