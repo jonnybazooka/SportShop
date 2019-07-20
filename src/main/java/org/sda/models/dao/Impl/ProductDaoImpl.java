@@ -11,18 +11,18 @@ import javax.persistence.EntityTransaction;
 import java.util.List;
 
 public class ProductDaoImpl implements ProductDao {
-    @Override
+    /*@Override
     public List<Product> getProductList() {
         EntityManager entityManager = Datasource.getEntityManager();
         List<Product> products = entityManager.createQuery("FROM Product p").getResultList();
         return products;
-    }
+    }*/
 
     // temporary for development purposes only
-    /*@Override
+    @Override
     public List<Product> getProductList() {
         return ProductFactory.createProductList();
-    }*/
+    }
 
     @Override
     public void saveProduct(Product product) {
