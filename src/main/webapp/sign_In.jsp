@@ -63,7 +63,7 @@
 
                 <form method="post" action="sign_In">
                     <ul class="list-unstyled mt-3 mb-4">
-                        <form method="POST" action="index.jsp">
+
                             <li><input type="email" name="email" placeholder="email"/></li>
                             <li><input type="password" name="password" placeholder="Password"/></li>
 
