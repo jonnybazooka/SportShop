@@ -75,7 +75,7 @@
                                 <li>${product.size}</li>
                                 <li>${product.colour}</li>
                                 <li>${product.sex}</li>
-                                <li>${product.quantity}</li>
+                                <li>${product.quantity-product.reserved}</li>
                             </ul>
                             <a href="addToBasket?id=${product.id}" type="button" class="btn btn-lg btn-block btn-outline-primary">Add to basket
                             </a>
