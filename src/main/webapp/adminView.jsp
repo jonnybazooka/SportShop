@@ -84,6 +84,9 @@
                 <div class="col-sm">
                     <h6></h6>
                 </div>
+                <div class="container">
+                    <br>
+                </div>
 
                 <c:forEach var="product" items="${requestScope.products}">
                     <div class="container">
@@ -111,6 +114,7 @@
                                    type="button">-</a>
 
                             </div>
+
                             <div class="col-sm">
                                 <a href="productManagement?id=${product.id}&add=inc" class="btn btn-primary btn-sm"
                                    type="button">+</a>
@@ -128,7 +132,10 @@
                     <br>
                 </div>
                 <div class="container">
-                    Add Products
+                    <h3>Add Products</h3>
+                </div>
+                <div class="container">
+                    <br>
                 </div>
                 <div class="container">
                     <form method="POST" action="admin">
@@ -153,18 +160,36 @@
                                 <input type="text" class="form-control" name="quantity" placeholder="quantity">
                             </div>
                         </div>
+                        <div class="container">
+                            <br>
+                        </div>
 
                         <button type="submit" class="col-sm">Submit
                         </button>
                     </form>
+                    <div class="container">
+                        <br>
+                    </div>
+                    <div class="container">
+                        <h3>Transactions list</h3>
+                    </div>
+                    <div class="container">
+                        <br>
+                    </div>
                     <c:forEach var="transaction" items="${requestScope.transactions}">
+                    <div class="container">
+                        <br>
+                    </div>
                     <div class="container">
                         <div class="row">
                             <div class="col-sm">
-                                    ${transaction.client.email}
+                                <h6> User mail: </h6>
+                            </div>
+                            <div class="col-sm">
+                                <h6>   ${transaction.client.email} </h6>
                             </div>
                         </div>
-                        <c:set var="count" value="0" scope="page" />
+                        <c:set var="count" value="0" scope="page"/>
 
 
                         <c:forEach var="product" items="${transaction.products}">
@@ -180,15 +205,24 @@
                             <c:set var="count" value="${count + product.price*product.quantity}" scope="page"/>
 
                         </c:forEach>
-                        <div class="col-sm">
-                                ${count}
+
+                        <div class="row">
+                            <div class="col-sm">
+                                <h5> Total price: </h5>
+                            </div>
+                            <div class="col-sm">
+                                <h5>   ${count} </h5>
+                            </div>
+
                         </div>
 
                     </div>
 
 
                 </div>
-
+                <div class="container">
+                    <br>
+                </div>
                 </c:forEach>
 
             </div>
