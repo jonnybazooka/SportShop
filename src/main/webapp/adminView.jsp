@@ -46,7 +46,7 @@
     <nav class="my-2 my-md-0 mr-md-3">
         <a class="p-2 text-dark" href="basket.jsp">Basket</a>
         <a class="p-2 text-dark" href="#">Control Panel</a>
-        <a class="btn btn-outline-primary" action href="frontView.jsp">HOME</a>
+        <a class="btn btn-outline-primary" action href="${pageContext.request.contextPath}">HOME</a>
     </nav>
     <a class="btn btn-outline-primary" action href="sign_In.jsp">ADMIN</a>
 </div>
