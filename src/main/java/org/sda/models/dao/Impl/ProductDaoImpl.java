@@ -42,4 +42,10 @@ public class ProductDaoImpl implements ProductDao {
         basket.addProduct(product);
         transaction.commit();
     }
+
+    @Override
+    public Product getProductById(long id) {
+        EntityManager entityManager = Datasource.getEntityManager();
+        return entityManager.find(Product.class, id);
+    }
 }

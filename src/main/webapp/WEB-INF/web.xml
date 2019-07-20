@@ -58,4 +58,13 @@
         <url-pattern>/admin</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>ProductManagementServlet</servlet-name>
+        <servlet-class>org.sda.servlets.ProductManagementServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ProductManagementServlet</servlet-name>
+        <url-pattern>/productManagement</url-pattern>
+    </servlet-mapping>
+
 </web-app>
