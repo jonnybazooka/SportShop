@@ -1,5 +1,6 @@
 package org.sda.models.dao;
 
+import org.sda.models.dto.Basket;
 import org.sda.models.dto.Client;
 import org.sda.models.dto.Product;
 
@@ -19,7 +20,7 @@ public interface BasketDao {
      * the 'quantity' field of a product object by the amount bought and
      * 'reserved' field should be set to 0.
      *
-     * @param client Current client, should be retrieved from database.
+     * @param basket Current basket, should be retrieved from database.
      */
-    void sellAllItems(Client client);
+    void sellAllItems(Client client, Basket basket);
 }

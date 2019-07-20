@@ -14,16 +14,16 @@ import java.util.List;
 public class BasketDaoImpl implements BasketDao {
 
     @Override
-    public void sellAllItems(Client client) {
+    public void sellAllItems(Client client, Basket basket) {
         EntityManager entityManager = Datasource.getEntityManager();
         EntityTransaction entityTransaction = entityManager.getTransaction();
 
-        Basket basket = entityManager.find(Basket.class, client.getId());
         Transaction transaction = new Transaction();
+
+        entityTransaction.begin();
         transaction.setProducts(basket.getProducts());
         transaction.setClient(client);
 
-        entityTransaction.begin();
         for (Product product : basket.getProducts()) {
             product.setQuantity(product.getQuantity() - product.getReserved());
             product.setReserved(0L);

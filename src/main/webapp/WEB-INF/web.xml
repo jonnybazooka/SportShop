@@ -85,4 +85,13 @@
         <url-pattern>/basket</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>BuyAllServlet</servlet-name>
+        <servlet-class>org.sda.servlets.BuyAllServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>BuyAllServlet</servlet-name>
+        <url-pattern>/buy</url-pattern>
+    </servlet-mapping>
+
 </web-app>
