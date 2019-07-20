@@ -57,7 +57,7 @@
 <div class="container">
 
     <div class="card-deck mb-3 text-center">
-        <c:forEac var="product" items="${requestScope.products}">
+        <c:forEach var="product" items="${requestScope.products}">
             <div class="container">
                 <div class="row">
                     <div class="col-sm">
@@ -92,7 +92,7 @@
                 </div>
             </div>
 
-        </c:forEac>
+        </c:forEach>
 
         <form method="POST" action="admin">
             <ul class="list-unstyled mt-3 mb-4">
