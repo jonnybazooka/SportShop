@@ -84,7 +84,7 @@
 
     </c:forEach>
 
-        <form method="POST" action="AdminServlet">
+        <form method="POST" action="admin">
             <ul class="list-unstyled mt-3 mb-4">
                 <li><input type="text" name="name" placeholder="name"/></li>
                 <li><input type="text" name="price" placeholder="price"/></li>
