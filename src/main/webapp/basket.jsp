@@ -74,7 +74,7 @@
                                 <li>${product.size}</li>
                                 <li>${product.colour}</li>
                                 <li>${product.sex}</li>
-                                <li>${product.quantity}</li>
+                                <li>${product.reserved}</li>
                             </ul>
                             <button type="button" class="btn btn-lg btn-block btn-outline-primary">Remove from basket.
                             </button>
