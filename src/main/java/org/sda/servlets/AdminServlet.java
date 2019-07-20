@@ -21,4 +21,22 @@ public class AdminServlet extends HttpServlet {
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("adminView.jsp");
         requestDispatcher.forward(req, resp);
     }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        Product product = createNewProductFromRequest(req);
+        ProductDao productDao = new ProductDaoImpl();
+        productDao.saveProduct(product);
+        resp.sendRedirect("adminView.jsp");
+    }
+
+    private Product createNewProductFromRequest(HttpServletRequest req) {
+        String size = req.getParameter("size");
+        String name = req.getParameter("name");
+        String colour = req.getParameter("colour");
+        String sex = req.getParameter("sex");
+        double price = Double.parseDouble(req.getParameter("price"));
+        long quantity = Long.parseLong(req.getParameter("quantity"));
+        return new Product(size, name, colour, sex, price, quantity, 0);
+    }
 }
