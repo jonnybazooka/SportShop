@@ -17,14 +17,14 @@ public class ProductManagementServlet extends HttpServlet {
         String add = req.getParameter("add");
         long id = Long.parseLong(req.getParameter("id"));
         ProductDao productDao = new ProductDaoImpl();
-        if (add.equals("+")) {
+        if (add.equals("inc")) {
             Product product = productDao.getProductById(id);
             product.setQuantity(product.getQuantity()+1);
-        } else if (add.equals("-")) {
+        } else if (add.equals("dec")) {
             Product product = productDao.getProductById(id);
             product.setQuantity(product.getQuantity()-1);
         } else {
-            throw new ServletException("Request should be '-' or '+'");
+            throw new ServletException("Request should be 'dec' or 'inc'");
         }
         resp.sendRedirect("admin");
     }
