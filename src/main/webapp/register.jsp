@@ -45,6 +45,7 @@
     <h5 class="my-0 mr-md-auto font-weight-normal">Sport Shop SDA</h5>
     <a class="btn btn-outline-primary" action href="sign_In.jsp">Sign up</a>
     <a class="btn btn-outline-primary" href="register.jsp">Register</a>
+    <a class="btn btn-outline-primary" action href="${pageContext.request.contextPath}">HOME</a>
 </div>
 
 <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
