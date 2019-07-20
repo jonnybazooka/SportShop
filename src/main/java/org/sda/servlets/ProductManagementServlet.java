@@ -20,9 +20,11 @@ public class ProductManagementServlet extends HttpServlet {
         if (add.equals("inc")) {
             Product product = productDao.getProductById(id);
             product.setQuantity(product.getQuantity()+1);
+            productDao.saveProduct(product);
         } else if (add.equals("dec")) {
             Product product = productDao.getProductById(id);
             product.setQuantity(product.getQuantity()-1);
+            productDao.saveProduct(product);
         } else {
             throw new ServletException("Request should be 'dec' or 'inc'");
         }
