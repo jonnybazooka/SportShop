@@ -20,7 +20,11 @@ public class ViewServlet extends HttpServlet {
         BasketDao basketDao = new BasketDaoImpl();
         if (req.getSession().getAttribute("name") != null) {
             List<Product> basket = basketDao.getAllItems();
-            req.setAttribute("basket", basket);
+            long totalCount = 0L;
+            for (Product product : basket) {
+                totalCount += product.getReserved();
+            }
+            req.setAttribute("basket", totalCount);
         }
         req.setAttribute("productList",list);
 
