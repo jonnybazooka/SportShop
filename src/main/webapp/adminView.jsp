@@ -58,7 +58,34 @@
 <div class="container">
 
     <div class="card-deck mb-3 text-center">
-        <c:forEach var="product" items="${requestScope.products}">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm">
+                    <h6>Product</h6>
+                </div>
+                <div class="col-sm">
+                    <h6>Price</h6>
+                </div>
+                <div class="col-sm">
+                    <h6>Product size</h6>
+                </div>
+                <div class="col-sm">
+                    <h6>Colour</h6>
+                </div>
+                <div class="col-sm">
+                    <h6>Sex</h6>
+                </div>
+                <div class="col-sm">
+                    <h6>Quantity</h6>
+                </div>
+                <div class="col-sm">
+                    <h6> </h6>
+                </div>
+                <div class="col-sm">
+                    <h6> </h6>
+                </div>
+
+                <c:forEach var="product" items="${requestScope.products}">
             <div class="container">
                 <div class="row">
                     <div class="col-sm">
@@ -91,6 +118,8 @@
 
 
                 </div>
+
+
             </div>
 
         </c:forEach>
