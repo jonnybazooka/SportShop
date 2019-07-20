@@ -53,7 +53,8 @@
 
 <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
     <h1 class="display-4">Your basket.</h1>
-    <p class="lead">If you don't like a product anymore, feel free to remove it from the basket before finishing shopping.</p>
+    <p class="lead">If you don't like a product anymore, feel free to remove it from the basket before finishing
+        shopping.</p>
 </div>
 <div class="container">
 
@@ -82,9 +83,13 @@
                 </div>
             </div>
         </c:forEach>
+
     </div>
+    <div class="col-md-4 center-block">
+        <button type="button" class="btn btn-outline-primary" action href="buy">Buy all
+        </button>
 
-
+    </div>
 
     <footer class="pt-4 my-md-5 pt-md-5 border-top">
         <div class="row">
