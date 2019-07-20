@@ -79,132 +79,159 @@
                     <h6>Quantity</h6>
                 </div>
                 <div class="col-sm">
-                    <h6> </h6>
+                    <h6></h6>
                 </div>
                 <div class="col-sm">
-                    <h6> </h6>
+                    <h6></h6>
                 </div>
 
                 <c:forEach var="product" items="${requestScope.products}">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm">
-                            ${product.name}
-                    </div>
-                    <div class="col-sm">
-                            ${product.price}
-                    </div>
-                    <div class="col-sm">
-                            ${product.size}
-                    </div>
-                    <div class="col-sm">
-                            ${product.colour}
-                    </div>
-                    <div class="col-sm">
-                            ${product.sex}
-                    </div>
-                    <div class="col-sm">
-                            ${product.quantity}
-                    </div>
-                    <div class="col-sm">
-                        <a href="productManagement?id=${product.id}&add=dec"  class="btn btn-primary btn-sm" type="button">-</a>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm">
+                                    ${product.name}
+                            </div>
+                            <div class="col-sm">
+                                    ${product.price}
+                            </div>
+                            <div class="col-sm">
+                                    ${product.size}
+                            </div>
+                            <div class="col-sm">
+                                    ${product.colour}
+                            </div>
+                            <div class="col-sm">
+                                    ${product.sex}
+                            </div>
+                            <div class="col-sm">
+                                    ${product.quantity}
+                            </div>
+                            <div class="col-sm">
+                                <a href="productManagement?id=${product.id}&add=dec" class="btn btn-primary btn-sm"
+                                   type="button">-</a>
+
+                            </div>
+                            <div class="col-sm">
+                                <a href="productManagement?id=${product.id}&add=inc" class="btn btn-primary btn-sm"
+                                   type="button">+</a>
+
+                            </div>
+
+
+                        </div>
+
 
                     </div>
-                    <div class="col-sm">
-                        <a href="productManagement?id=${product.id}&add=inc"  class="btn btn-primary btn-sm" type="button">+</a>
+
+                </c:forEach>
+                <div class="container">
+                    <br>
+                </div>
+                <div class="container">
+                    Add Products
+                </div>
+                <div class="container">
+                    <form method="POST" action="admin">
+
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" class="form-control" name="name" placeholder="name">
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" name="price" placeholder="price">
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" name="size" placeholder="size">
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" name="colour" placeholder="colour">
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" name="sex" placeholder="sex">
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" name="quantity" placeholder="quantity">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="col-sm">Submit
+                        </button>
+                    </form>
+                    <c:forEach var="transaction" items="${requestScope.transactions}">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm">
+                                    ${transaction.client.email}
+                            </div>
+                        </div>
+                        <c:forEach var="product" items="${transaction.products}">
+                            <div class="row">
+                                <div class="col-sm">
+                                        ${product.name}
+                                </div>
+                                <div class="col-sm">
+                                        ${product.quantity}
+                                </div>
+                            </div>
+                        </c:forEach>
 
                     </div>
-
 
 
                 </div>
 
+                </c:forEach>
 
             </div>
-
-        </c:forEach>
-        <div class="container">
-                      <br>
         </div>
-        <div class="container">
-            Add Products
-        </div>
-        <div class="container">
-        <form method="POST" action="admin">
-
-                <div class="row">
-                    <div class="col">
-                        <input type="text" class="form-control" name="name" placeholder="name">
-                    </div>
-                    <div class="col">
-                        <input type="text" class="form-control" name="price" placeholder="price">
-                    </div>
-                    <div class="col">
-                        <input type="text" class="form-control" name="size" placeholder="size">
-                    </div>
-                    <div class="col">
-                        <input type="text" class="form-control" name="colour" placeholder="colour">
-                    </div>
-                    <div class="col">
-                        <input type="text" class="form-control" name="sex" placeholder="sex">
-                    </div>
-                    <div class="col">
-                        <input type="text" class="form-control" name="quantity" placeholder="quantity">
-                    </div>
+        <footer class="pt-4 my-md-5 pt-md-5 border-top">
+            <div class="row">
+                <div class="col-12 col-md">
+                    <img class="mb-2" src="/docs/4.3/assets/brand/bootstrap-solid.svg" alt="" width="24"
+                         height="24">
+                    <small class="d-block mb-3 text-muted">&copy; 2017-2019</small>
+                </div>
+                <div class="col-6 col-md">
+                    <h5>Features</h5>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="text-muted" href="#">Cool stuff</a></li>
+                        <li><a class="text-muted" href="#">Random feature</a></li>
+                        <li><a class="text-muted" href="#">Team feature</a></li>
+                        <li><a class="text-muted" href="#">Stuff for developers</a></li>
+                        <li><a class="text-muted" href="#">Another one</a></li>
+                        <li><a class="text-muted" href="#">Last time</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md">
+                    <h5>Resources</h5>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="text-muted" href="#">Resource</a></li>
+                        <li><a class="text-muted" href="#">Resource name</a></li>
+                        <li><a class="text-muted" href="#">Another resource</a></li>
+                        <li><a class="text-muted" href="#">Final resource</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md">
+                    <h5>About</h5>
+                    <ul class="list-unstyled text-small">
+                        <li><a class="text-muted" href="#">Team</a></li>
+                        <li><a class="text-muted" href="#">Locations</a></li>
+                        <li><a class="text-muted" href="#">Privacy</a></li>
+                        <li><a class="text-muted" href="#">Terms</a></li>
+                    </ul>
+                </div>
             </div>
-
-            <button type="submit" class="col-sm" >Submit
-            </button>
-        </form>
-        </div>
+        </footer>
     </div>
-    <footer class="pt-4 my-md-5 pt-md-5 border-top">
-        <div class="row">
-            <div class="col-12 col-md">
-                <img class="mb-2" src="/docs/4.3/assets/brand/bootstrap-solid.svg" alt="" width="24" height="24">
-                <small class="d-block mb-3 text-muted">&copy; 2017-2019</small>
-            </div>
-            <div class="col-6 col-md">
-                <h5>Features</h5>
-                <ul class="list-unstyled text-small">
-                    <li><a class="text-muted" href="#">Cool stuff</a></li>
-                    <li><a class="text-muted" href="#">Random feature</a></li>
-                    <li><a class="text-muted" href="#">Team feature</a></li>
-                    <li><a class="text-muted" href="#">Stuff for developers</a></li>
-                    <li><a class="text-muted" href="#">Another one</a></li>
-                    <li><a class="text-muted" href="#">Last time</a></li>
-                </ul>
-            </div>
-            <div class="col-6 col-md">
-                <h5>Resources</h5>
-                <ul class="list-unstyled text-small">
-                    <li><a class="text-muted" href="#">Resource</a></li>
-                    <li><a class="text-muted" href="#">Resource name</a></li>
-                    <li><a class="text-muted" href="#">Another resource</a></li>
-                    <li><a class="text-muted" href="#">Final resource</a></li>
-                </ul>
-            </div>
-            <div class="col-6 col-md">
-                <h5>About</h5>
-                <ul class="list-unstyled text-small">
-                    <li><a class="text-muted" href="#">Team</a></li>
-                    <li><a class="text-muted" href="#">Locations</a></li>
-                    <li><a class="text-muted" href="#">Privacy</a></li>
-                    <li><a class="text-muted" href="#">Terms</a></li>
-                </ul>
-            </div>
-        </div>
-    </footer>
-</div>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
 </body>
 </html>
 
