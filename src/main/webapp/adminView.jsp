@@ -57,7 +57,7 @@
 <div class="container">
 
     <div class="card-deck mb-3 text-center">
-        <c:forEach var="product" items="${requestScope.products}">
+        <c:forEac var="product" items="${requestScope.products}">
             <div class="container">
                 <div class="row">
                     <div class="col-sm">
@@ -79,11 +79,11 @@
                             ${product.quantity}
                     </div>
                     <div class="col-sm">
-                        <a href="productManagement?id=${product.id}&add=-"  class="btn btn-primary" type="button">-</a>
+                        <a href="productManagement?id=${product.id}&add=dec"  class="btn btn-primary" type="button">-</a>
 
                     </div>
                     <div class="col-sm">
-                        <a href="productManagement?id=${product.id}&add=+"  class="btn btn-primary" type="button">+</a>
+                        <a href="productManagement?id=${product.id}&add=inc"  class="btn btn-primary" type="button">+</a>
 
                     </div>
 
@@ -92,7 +92,7 @@
                 </div>
             </div>
 
-        </c:forEach>
+        </c:forEac>
 
         <form method="POST" action="admin">
             <ul class="list-unstyled mt-3 mb-4">
