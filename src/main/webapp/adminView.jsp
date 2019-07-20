@@ -158,6 +158,7 @@
                         </button>
                     </form>
                     <c:forEach var="transaction" items="${requestScope.transactions}">
+                    <c:set var="value" value="${0}"/>
                     <div class="container">
                         <div class="row">
                             <div class="col-sm">
@@ -171,7 +172,9 @@
                                 </div>
                                 <div class="col-sm">
                                         ${product.quantity}
+                                        <c:set var="value" value="${value + product.price}"/>
                                 </div>
+                                ${value}
                             </div>
                         </c:forEach>
 
