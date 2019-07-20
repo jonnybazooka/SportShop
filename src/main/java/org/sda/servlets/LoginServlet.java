@@ -37,8 +37,8 @@ public class LoginServlet extends HttpServlet {
                 resp.addCookie(cookie);
                 clientDao.saveCookie(client, cookie);
 
-                RequestDispatcher requestDispatcher = req.getRequestDispatcher("frontUserView.jsp");
-                requestDispatcher.forward(req,resp);
+                String contextPath = req.getContextPath();
+                resp.sendRedirect(contextPath);
             } else {
                 RequestDispatcher requestDispatcher = req.getRequestDispatcher("loginFault.jsp");
                 requestDispatcher.forward(req,resp);
