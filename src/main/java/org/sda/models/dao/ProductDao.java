@@ -28,4 +28,6 @@ public interface ProductDao {
      * @param basket  Basket should be retrieved from the 'client' object.
      */
     void putInBasket(Product product, Basket basket);
+
+    Product getProductById(long id);
 }
