@@ -107,11 +107,11 @@
                             ${product.quantity}
                     </div>
                     <div class="col-sm">
-                        <a href="productManagement?id=${product.id}&add=dec"  class="btn btn-primary" type="button">-</a>
+                        <a href="productManagement?id=${product.id}&add=dec"  class="btn btn-primary btn-sm" type="button">-</a>
 
                     </div>
                     <div class="col-sm">
-                        <a href="productManagement?id=${product.id}&add=inc"  class="btn btn-primary" type="button">+</a>
+                        <a href="productManagement?id=${product.id}&add=inc"  class="btn btn-primary btn-sm" type="button">+</a>
 
                     </div>
 
