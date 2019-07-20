@@ -83,6 +83,20 @@
     </div>
 
     </c:forEach>
+
+        <form method="POST" action="AdminServlet">
+            <ul class="list-unstyled mt-3 mb-4">
+                <li><input type="text" name="name" placeholder="name"/></li>
+                <li><input type="text" name="price" placeholder="price"/></li>
+                <li><input type="text" name="size" placeholder="size"/></li>
+                <li><input type="text" name="colour" placeholder="colour"/></li>
+                <li><input type="text" name="sex" placeholder="sex"/></li>
+                <li><input type="text" name="quantity" placeholder="quantity"/></li>
+
+            </ul>
+            <button type="submit" class="btn btn-lg btn-block btn-outline-primary">Submit
+            </button>
+        </form>
 </div>
 <footer class="pt-4 my-md-5 pt-md-5 border-top">
     <div class="row">
