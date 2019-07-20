@@ -36,7 +36,7 @@ public class BasketDaoImpl implements BasketDao {
     @Override
     public List<Product> getAllItems() {
         EntityManager entityManager = Datasource.getEntityManager();
-        List<Product> allItems = entityManager.createQuery("SELECT Product FROM Basket b").getResultList();
+        List<Product> allItems = entityManager.createQuery("SELECT b.products FROM Basket b").getResultList();
         return allItems;
     }
 }

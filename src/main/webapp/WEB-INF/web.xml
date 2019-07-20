@@ -76,4 +76,13 @@
         <url-pattern>/addToBasket</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>ViewBasketServlet</servlet-name>
+        <servlet-class>org.sda.servlets.ViewBasketServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ViewBasketServlet</servlet-name>
+        <url-pattern>/basket</url-pattern>
+    </servlet-mapping>
+
 </web-app>
