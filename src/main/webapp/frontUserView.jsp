@@ -48,7 +48,7 @@
         <a class="p-2 text-dark" href="basket.jsp">Basket</a>
         <a class="p-2 text-dark" href="#">Control Panel</a>
     </nav>
-    <a class="btn btn-outline-primary" action href="sign_In.jsp">${sessionScope.name}</a>b
+    <a class="btn btn-outline-primary" action href="sign_In.jsp">${sessionScope.name}</a>
 </div>
 
 <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
