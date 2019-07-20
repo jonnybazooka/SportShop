@@ -41,12 +41,17 @@ public class ClientDaoImpl implements ClientDao {
     @Override
     public Basket getBasket(Client client) {
         EntityManager entityManager = Datasource.getEntityManager();
-        try {
-            List<Basket> result = (List<Basket>) entityManager.createQuery("SELECT Basket FROM Client c").getResultList();
-            return result.get(0);
-        } catch (NullPointerException e) {
-            return new Basket();
+        List<Basket> result = (List<Basket>) entityManager.createQuery("SELECT c.basket FROM Client c").getResultList();
+        if (result.isEmpty()) {
+            Basket basket = new Basket();
+            EntityTransaction transaction = entityManager.getTransaction();
+            transaction.begin();
+            client.setBasket(basket);
+            entityManager.persist(client);
+            transaction.commit();
+            return basket;
         }
+        return result.get(0);
     }
 
     @Override
