@@ -67,4 +67,13 @@
         <url-pattern>/productManagement</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>AddToBasketServlet</servlet-name>
+        <servlet-class>org.sda.servlets.AddToBasketServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddToBasketServlet</servlet-name>
+        <url-pattern>/addToBasket</url-pattern>
+    </servlet-mapping>
+
 </web-app>

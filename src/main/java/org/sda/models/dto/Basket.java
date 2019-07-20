@@ -7,11 +7,11 @@ import java.util.List;
 @Entity
 public class Basket {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
     @OneToMany(mappedBy = "basket", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     private List<Product> products = new ArrayList<>();
     @OneToOne
-    @MapsId
     private Client client;
 
     public Basket() {

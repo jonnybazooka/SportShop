@@ -40,6 +40,7 @@ public class ProductDaoImpl implements ProductDao {
         transaction.begin();
         product.setReserved(product.getReserved()+1);
         basket.addProduct(product);
+        entityManager.persist(basket);
         transaction.commit();
     }
 
