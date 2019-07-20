@@ -27,7 +27,7 @@ public class AdminServlet extends HttpServlet {
         Product product = createNewProductFromRequest(req);
         ProductDao productDao = new ProductDaoImpl();
         productDao.saveProduct(product);
-        resp.sendRedirect("adminView.jsp");
+        resp.sendRedirect("admin");
     }
 
     private Product createNewProductFromRequest(HttpServletRequest req) {
