@@ -164,6 +164,9 @@
                                     ${transaction.client.email}
                             </div>
                         </div>
+                        <c:set var="count" value="0" scope="page" />
+
+
                         <c:forEach var="product" items="${transaction.products}">
                             <div class="row">
                                 <div class="col-sm">
@@ -173,7 +176,13 @@
                                         ${product.quantity}
                                 </div>
                             </div>
+
+                            <c:set var="count" value="${count + product.price*product.quantity}" scope="page"/>
+
                         </c:forEach>
+                        <div class="col-sm">
+                                ${count}
+                        </div>
 
                     </div>
 
